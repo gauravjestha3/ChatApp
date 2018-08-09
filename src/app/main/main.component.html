@@ -1,0 +1,32 @@
+<div class="chat">
+  <strong>#ChatApp</strong>
+<input type="text" id="channel1" placeholder="Enter Channel Name" [(ngModel)]='ForAdd'/>
+<button id="addchannel" type="button" (click)="AddButtonClicked(ForAdd)">Add Channel</button>
+
+<br/>
+<input type="text" id="SearchChannel" placeholder="Search Channel Name" [(ngModel)]=ForSearch/>
+<button id="searchchannel" type="button" (click)="SearchButtonClicked(ForSearch)"[disabled]="!ForSearch">Search Channel</button>
+{{MyVar}}
+<br/>
+<button id="display" type="button" (click)="Display()">Display Channels</button>
+<ul *ngFor = "let channel of channelArr">
+    <li>{{channel}}</li>
+  </ul>
+</div>
+<div class="show">
+  <div class="sendmessage">
+<input type="text" id="SearchChannel" placeholder="Type Message here" [(ngModel)]=Msg/>
+
+
+<button id="searchchannel" type="button" (click)="Send(Msg)">Send Message</button>
+
+<button id="show" type="button" (click)="Show()">Show Message</button>
+
+</div>
+<!--this for loop is used for history of messages,it searches all the messages in a msgArray-->
+<ul *ngFor = "let messagedetail of msgArr">
+  <li>{{messagedetail}}</li>
+</ul>
+
+</div>
+<!-- <h1>{{msgArr}}</h1> -->
