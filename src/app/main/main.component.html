@@ -37,8 +37,8 @@
   </ul>
 </div>
 <div class="show" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-  
-  
+ <h1> Your Channel:{{channel.toUpperCase()}}</h1>
+  <hr>
   <ul >
     <li *ngFor="let messagedetail of msgArr" id="message" class="showmessage" [ngStyle]="{'float':(messagedetail.from== this.details.email)?'right':'left', 'background-color':(messagedetail.from== this.details.email)?'aliceblue':'antiquewhite' }">{{messagedetail.body}}
       <br>{{messagedetail.from}}</li>
@@ -51,4 +51,3 @@
     </div>
 </div>
 
-<!-- <h1>{{msgArr}}</h1> -->

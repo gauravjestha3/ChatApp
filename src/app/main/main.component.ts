@@ -138,6 +138,7 @@ export class MainComponent implements OnInit {
   Send() {
     this.AuthObject.SendMessage(this.Message).subscribe(res => {
       console.log(res);
+      this.Message="";
     }),
       err => {
         console.log(err);
