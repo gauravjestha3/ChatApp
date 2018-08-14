@@ -14,18 +14,24 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent {
 
-  constructor(private socialAuthService: AuthService, private routes: Router) { }
+  constructor(private socialAuthService: AuthService, private routes: Router,private auth:AuthUserService) { }
 
   public socialSignIn(socialPlatform : string) {
     let socialPlatformProvider;
     if(socialPlatform == "google"){
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+      var g=this.auth.getdata();
+      g.subscribe(data=>console.log(data));
+
     } 
     
     this.socialAuthService.signIn(socialPlatformProvider).then(
     //we save our data to local storage because we want our email id to next page.
       (userData) => {
         localStorage.setItem('key',JSON.stringify(userData));
+        var userid=userData.id;
+        localStorage.setItem('id',userid)
+      
         this.routes.navigate(['/main'])
       }
     );

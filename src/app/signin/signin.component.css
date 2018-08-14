@@ -1,12 +1,12 @@
 #main {
-    background-color:lightblue;
-    height: 400px;
+    background-color:#474e5d;
+    height: 100%;
     padding: 30px;
     text-align: center;
 }
 #Btn {
-    border: 2px solid rgb(39, 204, 44);
-    background-color: rgb(39, 204, 44);
+    border: 2px solid rgb(104, 121, 105);
+    background-color: rgb(89, 97, 90);
     border-radius: 20px;
     color: white;
     padding: 15px;

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { SigninComponent } from './signin/signin.component';
 import { AuthUserService } from './auth-user.service';
-import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Data } from './data';
 import {
@@ -22,7 +22,7 @@ export function getAuthServiceConfigs() {
         {
           id: GoogleLoginProvider.PROVIDER_ID,
         
-        provider: new GoogleLoginProvider("224889169940-kltbp3595h4sf82oj92h69h11gkqle5v.apps.googleusercontent.com")
+        provider: new GoogleLoginProvider("613618912985-h80i05t723vuhb7rnv31pib1ikgt6937.apps.googleusercontent.com")
         },
       ]);
     return config;
@@ -36,7 +36,17 @@ const route:Routes=[
 {
   path:   'main',
   component:MainComponent
+},
+{
+  path: 'main',
+  component:MainComponent,
+  canActivate:[AuthUserService]
+},
+{
+  path: '**',
+  component:SigninComponent
 }
+
 ];
 @NgModule({
   declarations: [

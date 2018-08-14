@@ -1,32 +1,54 @@
+<!-- <button (click) = "clear()" >click me</button> -->
 <div class="chat">
-  <strong>#ChatApp</strong>
-<input type="text" id="channel1" placeholder="Enter Channel Name" [(ngModel)]='ForAdd'/>
-<button id="addchannel" type="button" (click)="AddButtonClicked(ForAdd)">Add Channel</button>
+  <div class="name"> {{details.email}}</div>
 
+  <div class="signout">
+    <button id="logout"class="button" (click)="signout()">
+      <span class="glyphicon glyphicon-off"></span>Sign OUt
+    </button>
+  </div>
 <br/>
-<input type="text" id="SearchChannel" placeholder="Search Channel Name" [(ngModel)]=ForSearch/>
-<button id="searchchannel" type="button" (click)="SearchButtonClicked(ForSearch)"[disabled]="!ForSearch">Search Channel</button>
-{{MyVar}}
-<br/>
-<button id="display" type="button" (click)="Display()">Display Channels</button>
-<ul *ngFor = "let channel of channelArr">
-    <li>{{channel}}</li>
+  <div>
+    <input type="text" id="channel1" placeholder="Enter Channel Name" [(ngModel)]='ForAdd' />
+    <button id="addchannel" type="button" (click)="AddButtonClicked(ForAdd)">
+      <span class="glyphicon glyphicon-plus-sign"></span>
+      </button>
+  </div>
+  <br/>
+  <br/>
+  <div>
+    <input type="text" id="SearchChannel" placeholder="Search Channel Name" [(ngModel)]=ForSearch/>
+  </div>
+  <br/>
+  <div>
+    <button id="searchchannel" type="button" (click)="SearchButtonClicked(ForSearch)">
+      <span class="glyphicon glyphicon-search"></span>
+    </button>
+  </div>
+  {{MyVar}}
+  <br/>
+
+  <ul *ngFor="let channel of channelArr" (click)="AllChannel(channel)" [id]="channel">
+    <li id="my">{{channel}}</li>
+  </ul>
+  <button id="addchannel" type="button" (click)="SubscribedChannels()">Subscribed Channels</button>
+  <ul *ngFor="let channel of ChannelName" (click)="viewChannelmessage(channel)" [id]="channel">
+    <li id="my">{{channel}}</li>
   </ul>
 </div>
-<div class="show">
+<div class="show" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+  
+  
+  <ul >
+    <li *ngFor="let messagedetail of msgArr" id="message" class="showmessage" [ngStyle]="{'float':(messagedetail.from== this.details.email)?'right':'left', 'background-color':(messagedetail.from== this.details.email)?'aliceblue':'antiquewhite' }">{{messagedetail.body}}
+      <br>{{messagedetail.from}}</li>
+      <br>
+  </ul>
+  <br>
   <div class="sendmessage">
-<input type="text" id="SearchChannel" placeholder="Type Message here" [(ngModel)]=Msg/>
-
-
-<button id="searchchannel" type="button" (click)="Send(Msg)">Send Message</button>
-
-<button id="show" type="button" (click)="Show()">Show Message</button>
-
+      <input id="typemessage" type="text" placeholder="Type Message here" [(ngModel)]="Message" />
+      <button id="buttonmessage"type="button" (click)="Send()">Send Message</button>
+    </div>
 </div>
-<!--this for loop is used for history of messages,it searches all the messages in a msgArray-->
-<ul *ngFor = "let messagedetail of msgArr">
-  <li>{{messagedetail}}</li>
-</ul>
 
-</div>
 <!-- <h1>{{msgArr}}</h1> -->

@@ -1,28 +1,66 @@
 .chat{
     float:left;
     width:20%;
-    background-color:#dcf8c6;
+    background-color:#4A394B;
     height:100vh;
     padding: 3%;
     margin-bottom: 0;
-    font-size:30px;
+    font-size:15px;
+}
+.name{
+    color: whitesmoke;
+}
+#logout{
+margin-left: 120px;
 }
 .show{
     float:left;
-    width:60%;
-    height:100vh;
+    width:80%;
+    height:95vh;
     background:whitesmoke ;
     padding-left: 10%;
-    overflow-y:scroll;
+    overflow:scroll;
 }
 .sendmessage{
     position: fixed;
     bottom: 0;                                 
     width: 100%;
 }
-button{
-    width:90px;
-    height:30px;                                       
-    background-color:whitesmoke;
-    border:0;
+
+#my{
+    color: aliceblue;
+    overflow: hidden;
+}
+#SearchChannel{
+    position: relative;
+    float: left;
+    
+}
+
+.showmessage{
+    color: black;
+    width: 50%;
+    border-radius: 10px;
+    margin: 10px;
+    overflow: hidden;
+    padding: 0px 0px 0px 10px;
+    height: auto;
+    word-wrap: break-word;
+}
+
+#typemessage{
+width:60%;
+height:30px;
+}
+#cog{
+    margin-top: -6%;
+    font-size: 200%;
+}
+#phone{
+    font-size: 200%;
+    margin-top: 4%;
+}
+.m1{
+    margin-bottom: 10px;
+
 }
